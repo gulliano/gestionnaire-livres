@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string('titre') ;
-            $table->string('auteur') ;
+            $table->foreignId("author_id")->constrained('authors')->onDelete('cascade') ;
             $table->integer('annee') ; 
             $table->enum('statut', ['lu', 'à lire', 'en cours'])->default('à lire') ;
             $table->boolean('favori')->default(false) ; 
