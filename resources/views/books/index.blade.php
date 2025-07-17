@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.book')
 
 @section('title', 'Mes Livres')
 
