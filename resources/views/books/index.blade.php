@@ -18,19 +18,25 @@
         <div class="row">
             @foreach ($books as $book)
                 <div class="col-md-4 mb-4">
+                    <x-book-card :book="$book" />
                     <div class="card">
                         <div class="card-body">
+                            @if ($book->image)
+                               <img src="{{$book->image_url}}" alt="{{$book->titre}}"> 
+                            @else
+                                <div><span>Pas d'image</span></div>
+                            @endif
                             <h5 class="card-title"> {{ $book->titre }}
                                 @if ($book->favori)
                                     <span class="badge bg-warning"> ⭐ Favori</span>
                                 @endif
                             </h5>
+
                             <p class="card-text">
-                                <strong>Auteur :</strong> {{ $book->auteur}} <br>
+                                <strong>Auteur :</strong> {{ $book->author->name}} <br>
                                 <strong>Année :</strong> {{ $book->annee}} <br>
-                                <strong>Statut :</strong> <span class="badge" @if ($book->statut === 'lu') bg-success @elseif ($book->statut === 'en cours') bg-warning @else bg-secondary  
-                                @endif"> {{ $book->statut }}
-                                </span>
+                                <strong>Statut :</strong> {{ $book->statut->state }}
+                                
                             </p>
                             @if ($book->note)
                                 <p class="card-text"><small class="text-muted">{{ Str::limit ($book->note, 100) }}</small></p>

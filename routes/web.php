@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\AuthorController;
 
 Route::get('/', function () {
     return redirect()->route('books.index');
@@ -20,3 +21,6 @@ Route::get('books/{book}/edit', [BookController::class, 'edit'])->name('books.ed
 Route::put('books/{book}', [BookController::class, 'update'])->name('books.update');
 
 Route::delete('/books/{book}', [BookController::class, 'destroy'])->name('books.destroy');
+
+// Trie 
+Route::get('/author/{author}', [AuthorController::class, 'show'])->name('books.author');

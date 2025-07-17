@@ -6,17 +6,12 @@ use App\Models\Book;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Author extends Model
+class Statut extends Model
 {
-    //
+    // ajouter le fillable pour le champ 'state
+    protected $fillable = ['state'];
 
-
-    /**
-     * Get all of the books for the Author
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function books(): HasMany
+    public function books()
     {
         return $this->hasMany(Book::class);
     }

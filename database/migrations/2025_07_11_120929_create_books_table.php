@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->string('titre') ;
             $table->foreignId("author_id")->constrained('authors')->onDelete('cascade') ;
+            $table->foreignId("statut_id")->constrained('statuts')->onDelete('cascade') ;
+            $table->string('titre') ;
             $table->integer('annee') ; 
-            $table->enum('statut', ['lu', 'à lire', 'en cours'])->default('à lire') ;
             $table->boolean('favori')->default(false) ; 
             $table->text('note')->nullable() ;
             $table->timestamps() ;
