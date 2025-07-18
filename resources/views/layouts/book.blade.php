@@ -7,6 +7,24 @@
     <title>@yield('titre', 'Gestionnaire de Livres')</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/
 dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+<style>
+.icon-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+.icon-button i {
+    font-size: 1.25rem;
+    transition: transform 0.1s ease-in-out;
+}
+.icon-button:hover i {
+    transform: scale(1.1);
+}
+</style>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -26,6 +44,7 @@ dist/css/bootstrap.min.css">
 
         @yield('content')
     </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
